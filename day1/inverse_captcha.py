@@ -21,11 +21,23 @@ def sum_next_digits(seq):
 
     return sum
 
+def sum_halfway_around_digits(seq):
+
+    sum_digits = 0
+    halfway = int(len(seq)/2)
+    for i in range(halfway):
+        if seq[i] == seq[halfway + i]:
+            sum_digits += seq[i]*2
+
+    return sum_digits
+
+
 def main():
 
     seq = get_list_of_digits("sequence.csv")
     sum_next = sum_next_digits(seq)
-    print(sum_next)
+    sum_halfway = sum_halfway_around_digits(seq)
+    print(sum_next, sum_halfway)
 
 
 if __name__ == '__main__':
