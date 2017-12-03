@@ -1,11 +1,12 @@
-def get_list_of_digits(file):
+def get_list_of_digits(file_name):
     seq = []
 
-    with open(file) as f:
-        for line in f:
-            for dig in line:
-                if dig.isdigit():
-                    seq.append(int(dig))
+    f = open(file_name)
+    for line in f:
+        for dig in line:
+            if dig.isdigit():
+                seq.append(int(dig))
+    f.close()
 
     return seq
 
@@ -36,7 +37,7 @@ def main():
     sum_next = sum_next_digits(seq)
     sum_halfway = sum_halfway_around_digits(seq)
     print(sum_next, sum_halfway)
-    
+
 
 if __name__ == '__main__':
     main()
