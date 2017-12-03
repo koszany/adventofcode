@@ -10,26 +10,26 @@ def get_list_of_digits(file):
 
 def sum_next_digits(seq):
 
-    sum = 0
+    sum_of_digits = 0
 
     for i in range(len(seq)-1):
         if seq[i] == seq[i+1]:
-            sum += seq[i]
+            sum_of_digits += seq[i]
 
     if seq[len(seq)-1] == seq[0]:
-        sum += seq[len(seq)-1]
+        sum_of_digits += seq[len(seq)-1]
 
-    return sum
+    return sum_of_digits
 
 def sum_halfway_around_digits(seq):
 
-    sum_digits = 0
+    sum_of_digits = 0
     halfway = int(len(seq)/2)
     for i in range(halfway):
         if seq[i] == seq[halfway + i]:
-            sum_digits += seq[i]*2
+            sum_of_digits += seq[i]*2
 
-    return sum_digits
+    return sum_of_digits
 
 
 def main():
