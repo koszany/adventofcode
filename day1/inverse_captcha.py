@@ -1,11 +1,14 @@
-def sum_of_matching_digits(file):
-
+def get_list_of_digits(file):
     seq = []
     with open(file) as f:
         for line in f:
             for dig in line:
                 if dig.isdigit():
                     seq.append(int(dig))
+
+    return seq
+
+def sum_next_digits(seq):
 
     sum = 0
 
@@ -20,8 +23,10 @@ def sum_of_matching_digits(file):
 
 def main():
 
-    sum = sum_of_matching_digits("sequence.csv")
-    print(sum)
+    seq = get_list_of_digits("sequence.csv")
+    sum_next = sum_next_digits(seq)
+    print(sum_next)
+
 
 if __name__ == '__main__':
     main()
