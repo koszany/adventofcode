@@ -19,13 +19,19 @@ def sum_evenly_divisible_values(file_name):
         convert_list_string_to_int(numbers)
         for i in range(len(numbers)):
             for j in range(i + 1, len(numbers)):
-                if numbers[i] % numbers[j] == 0:
-                    checksum += numbers[i]/numbers[j]
-                if numbers[j] % numbers[i] == 0:
-                    checksum += numbers[j]/numbers[i]
+                checksum += divide_evenly(numbers[i], numbers[j])
     f.close()
 
     return checksum
+
+def divide_evenly(a, b):
+    if a % b == 0:
+        return a/b
+    if b % a == 0:
+        return b/a
+    else:
+        return 0
+
 
 def convert_list_string_to_int(seq):
     for i in range(len(seq)):
