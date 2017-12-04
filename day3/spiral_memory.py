@@ -2,6 +2,12 @@ from math import sqrt
 from math import floor
 from math import ceil
 
+def get_manhattan_distance(square):
+
+    x, y = get_coordinates(square)
+
+    return abs(x) + abs(y)
+
 def get_coordinates(square):
 
     base = ceil(sqrt(square))
@@ -47,7 +53,9 @@ def get_coordinates(square):
 
 
 def main():
-    get_coordinates(52)
+
+    square = int(input("Enter the number of square: "))
+    print(get_manhattan_distance(square))
 
 if __name__ == '__main__':
     main()
