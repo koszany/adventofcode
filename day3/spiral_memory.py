@@ -21,36 +21,55 @@ def get_coordinates(square):
     y = (-1) * floor(side_length/2)
     moves_amount = next_right_down_corner - square
 
-    if moves_amount > side_length:
-        x -= side_length
-        moves_amount -= side_length
-    else:
-        x -=moves_amount
-        moves_amount = 0
+    print(x, y)
+    print(moves_amount)
 
-    if moves_amount > side_length:
-        y += side_length
-        moves_amount -= side_length
-    else:
-        y += moves_amount
-        moves_amount = 0
+    x = move_backward(x, moves_amount, side_length)
+    moves_amount = decrease(moves_amount, side_length)
 
-    if moves_amount > side_length:
-        x += side_length
-        moves_amount -= side_length
-    else:
-        x +=moves_amount
-        moves_amount = 0
+    print(x, y)
+    print(moves_amount)
 
-    if moves_amount > side_length:
-        y -= side_length
-        moves_amount -= side_length
-    else:
-        y -=moves_amount
-        moves_amount = 0
+    y = move_forward(y, moves_amount, side_length)
+    moves_amount = decrease(moves_amount, side_length)
+    print(x, y)
+    print(moves_amount)
+
+    x = move_forward(x, moves_amount, side_length)
+    moves_amount = decrease(moves_amount, side_length)
+    print(x, y)
+    print(moves_amount)
+
+    y = move_backward(y, moves_amount, side_length)
+    moves_amount = decrease(moves_amount, side_length)
+    print(x, y)
+    print(moves_amount)
 
     return x, y
 
+def move_backward(coor, moves_amount, side_length):
+    if moves_amount > side_length:
+        coor -= side_length
+    else:
+        coor -= moves_amount
+
+    return coor
+
+def move_forward(coor, moves_amount, side_length):
+    if moves_amount > side_length:
+        coor += side_length
+    else:
+        coor += moves_amount
+
+    return coor
+
+def decrease(moves_amount, side_length):
+    if moves_amount > side_length:
+        moves_amount -= side_length
+    else:
+        moves_amount = 0
+
+    return moves_amount
 
 def main():
 
