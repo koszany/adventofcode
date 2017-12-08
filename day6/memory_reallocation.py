@@ -5,12 +5,11 @@ def main():
 
     while not is_sequence_repeated(banks, configs):
         configs.append(banks[:])
-        index_max = banks.index(max(banks))
+        index = banks.index(max(banks))
 
-        amout_blocks = banks[index_max]
-        banks[index_max] = 0
+        amout_blocks = banks[index]
+        banks[index] = 0
 
-        index = index_max
         while amout_blocks > 0:
             if index < len(banks)-1:
                 index += 1
@@ -21,15 +20,18 @@ def main():
 
         steps += 1
 
+
     print(steps)
+    print(steps - configs.index(banks))
+
+#def get_redistribution_cycles:
+
 
 def is_sequence_repeated(banks, configs):
     for config in configs:
         if banks == config:
             return True
     return False
-
-
 
 if __name__ == '__main__':
     main()
